@@ -21,11 +21,11 @@ let tree =  {
   }
 }
 
-function preOrder (node) {
-  if (node) {
-    console.log(node.value)
-    preOrder(node.left)
-    preOrder(node.right)
+function preOrder (root) {
+  if (root) {
+    console.log(root.value)
+    preOrder(root.left)
+    preOrder(root.right)
   }
 }
 

@@ -1,3 +1,5 @@
+// 最大子序列
+
 function maxList (arr) {
   let max_num = 0
   let max_index = []
