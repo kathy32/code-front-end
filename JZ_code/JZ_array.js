@@ -24,55 +24,13 @@ function getDupNum (arr) {
   }
 
   return false
-
 }
 
 
 // 测试
-let arr = [2, 3, 1, 0, 2, 5, 3]
-getDupNum(arr)  // 2
+// let arr = [2, 3, 1, 0, 2, 5, 3]
+// getDupNum(arr)  // 2
 
-
-
-// 变：不修改数组，找出重复的数字。【可以不看】
-// 思路：二分查找
-function getDuplication (arr) {
-  if (arr.length === 0) return false
-  
-  let start = 0
-  let end = arr.length - 1
-
-  while (end >= start) {
-    let minddle = (end - start) / 2 + start
-    let count = countRange(arr, start, end)
-
-    if (end === start) {
-      if (count > 1) return start
-      else break
-    } 
-
-    if (count > minddle - start + 1) end = minddle
-    else start = minddle + 1
-  }
-
-  return -1
-}
-
-
-function countRange (arr, start, end) {
-  if (arr.length === 0) {
-    return 0
-  }
-
-  let count = 0
-  for (let i=0; i<arr.length; i++) {
-    if (arr[i] >=start && arr[i] <= end) {
-      count++
-    }
-  }
-
-  return count
-}
 
 
 // 题目4 二维数组的查找
@@ -98,3 +56,48 @@ function findNum (matrix, rows, cols, num) {
 
   return found
 }
+
+
+// 题目11 旋转数组的最小数字
+// 方法一：直接遍历找，无法达到面试要求 复杂度：n
+var minArray1 = function (arr) {
+  if (!arr || arr.length <=0) return
+
+  return Math.min(...arr)
+}
+
+let arr = [3,4,5,1,2]
+// console.log(minArray1(arr))  // 1
+
+
+// 方法二：二分查找   复杂度：logn
+var minArray2 = function (arr) {
+  if (!arr || arr.length <= 0)  return 
+
+  let left = 0
+  let right = arr.length - 1
+  let mid = Math.floor((left + right) / 2)
+
+  while (left < right) {
+    // 情况一：子数组有序
+    if (arr[left] < arr[right]) {
+      return arr[left]
+    }
+    
+    if (arr[left] < arr[mid]) { // 情况二：左子数组有序，最小值在右边
+      left = mid + 1
+    } else if (arr[mid] < arr[right]) {  // 情况三：右数组有序，最小值在左边
+      right = mid
+    } else {  // 情况四：无法判断，缩小范围
+      ++left
+    }
+  }
+
+  return arr[left]
+} 
+
+console.log(minArray2(arr))
+
+
+
+

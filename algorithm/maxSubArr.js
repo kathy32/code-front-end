@@ -23,19 +23,21 @@ function maxList (arr) {
   }
 
   // 求最大子序列
-  let temp = 0
-  let temp_index = 0
+  let maxRes = 0
+  let maxRes_index = 0
   for (let i=0; i<l1.length; i++) {
-    if (l1[i] > temp) {
-      temp = l1[i]
-      temp_index = i
+    if (l1[i] > maxRes) {
+      maxRes = l1[i]
+      maxRes_index = i
     }
   }
 
+
+
   console.log(l1)
-  console.log(temp)
-  console.log(temp_index)
-  console.log(l2[temp_index])
+  console.log(maxRes)
+  console.log(maxRes_index)
+  console.log(l2[maxRes_index])
 }
 
 // 测试
