@@ -1,3 +1,6 @@
+// 思路：https://leetcode-cn.com/problems/longest-palindromic-substring/solution/hui-wen-wen-ti-dong-tai-gui-hua-jspython5-zui-chan/
+// 情况：1，2，n
+
 var longestPalindrome = function (s) {
   if (!s || s.length === 0) return ''
 

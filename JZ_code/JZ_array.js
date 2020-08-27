@@ -71,8 +71,9 @@ let arr = [3,4,5,1,2]
 
 
 // 方法二：二分查找   复杂度：logn
+// 思路：https://xxoo521.com/2019-12-24-xuan-zhuan-shu-zu/
 var minArray2 = function (arr) {
-  if (!arr || arr.length <= 0)  return 
+  if (!arr)  return 
 
   let left = 0
   let right = arr.length - 1
