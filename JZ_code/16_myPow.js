@@ -3,6 +3,7 @@
 
 // 递归
 
+// 剑指 offer 112 页公式，指数相加。
 // 如果exponent是偶数，Power(base, exponent) = Power(base, exponent / 2) * Power(base, exponent / 2)
 // 如果exponent是奇数，Power(base, exponent) = base * Power(base, exponent / 2) * Power(base, exponent / 2)
 
