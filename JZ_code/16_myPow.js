@@ -25,3 +25,6 @@ function absMyPow (base, exponent) {
     return exponent % 2 ? subRes * subRes * base : subRes * subRes
   } 
 }
+
+
+console.log(myPow(2, 5))  // 32
