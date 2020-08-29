@@ -36,3 +36,5 @@ var departList = function (head, x) {
 
   return before_head.next
 }
+
+// 缺少测试部分
