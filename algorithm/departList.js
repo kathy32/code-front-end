@@ -8,19 +8,17 @@ function Node (val, next) {
   this.next = null
 }
 
-function LList () {
-  this.head = new Node('head')
-}
 
-
-var departList = function (head, x) {
-  let before_head = new Node(0)
+var partition = function(head, x) {
+  let before_head = new ListNode(0)
   let before = before_head
-  let after_head = new Node(0)
+  let after_head = new ListNode(0)
   let after = after_head
 
-  while (!head) {
-    if (head.val < x) {
+  // 易错点：head 不为空一直下一个
+  while (head) {
+    
+    if (x > head.val) {
       before.next = head
       before = before.next
     } else {
@@ -30,11 +28,36 @@ var departList = function (head, x) {
 
     head = head.next
   }
-
   after.next = null
   before.next = after_head.next
 
   return before_head.next
 }
 
-// 缺少测试部分
+
+
+let head1 = {
+  val: 1,
+  next: {
+    val: 2,
+    next: {
+      val: 2,
+      next: {
+        val: 4,
+        next: {
+          val: 3,
+          next: {
+            val: 5
+            
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+console.log(departList(head1, 3))
