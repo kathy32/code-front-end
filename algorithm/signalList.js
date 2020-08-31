@@ -83,11 +83,34 @@ function reverseList (head) {
   let [preNode, curNode] = [null, head]
 
   while (curNode) {
-    [curNode.next, preNode, curNode] = [preNode, curNode, curNode.next]
+    [curNode.next, preNode, curNode] = [preNode, curNode, curNode.next] // 312, 123
   }
 
   return preNode
 }
+
+let head1 = {
+  val: 1,
+  next: {
+    val: 2,
+    next: {
+      val: 3,
+      next: {
+        val: 4,
+        next: {
+          val: 2,
+          next: {
+            val: 5,
+            next: null
+          }
+        }
+      }
+    }
+  }
+}
+
+
+console.log(reverseList(head1))
 
 
 
