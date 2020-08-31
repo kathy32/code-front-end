@@ -9,10 +9,10 @@ function Node (val, next) {
 }
 
 
-var partition = function(head, x) {
-  let before_head = new ListNode(0)
+var departList = function(head, x) {
+  let before_head = new Node(0)
   let before = before_head
-  let after_head = new ListNode(0)
+  let after_head = new Node(0)
   let after = after_head
 
   // 易错点：head 不为空一直下一个
@@ -41,11 +41,11 @@ let head1 = {
   next: {
     val: 2,
     next: {
-      val: 2,
+      val: 3,
       next: {
         val: 4,
         next: {
-          val: 3,
+          val: 2,
           next: {
             val: 5
             
