@@ -29,4 +29,4 @@ function preOrder (root) {
   }
 }
 
-// preOrder(tree)
+preOrder(tree)
