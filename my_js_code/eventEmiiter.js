@@ -76,6 +76,7 @@ function fn3 () {
   console.log(3)
 }
 e.on('click', fn3)
+e.trigger('click') // 1 2 3
 
 console.log(e)
 
