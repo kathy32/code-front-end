@@ -28,18 +28,3 @@ function buildTree (preOrder, inOrder) {
 }
 
 
-// 题目27 二叉树的镜像
-// 思路：从上到下，依次交换每个节点的左右节点。
-var mirroTree = function (root) {
-  if (!root)  return null
-  
-  let leftCopy = root.left
-  root.left = root.right
-  root.right = leftCopy
-
-  // 对左右子树做相同操作
-  mirroTree(root.left)
-  mirroTree(root.right)
-
-  return root
-}
