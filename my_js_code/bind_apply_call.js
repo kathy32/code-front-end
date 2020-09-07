@@ -38,7 +38,7 @@ Function.prototype.myCall = function (context) {
     console.error("type error.")
   }
 
-  let args = [...arguments].slice[1]
+  let args = [...arguments].slice(1)
   let result = null
   context = context || window
   context.fn = this
