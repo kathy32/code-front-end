@@ -34,6 +34,7 @@ class Player {
     if (event && callback) {
       if (this.watchers[event] && this.watchers[event].length) {
         // findIndex()方法返回数组中满足提供的测试函数的第一个元素的索引。若没有找到对应元素则返回-1。
+        // Object.is() 方法判断两个值是否为同一个值。
         this.watchers[event].splice(this.watchers[event].findIndex(cb => Object.is(cb, callback)), 1)
       }
     }
