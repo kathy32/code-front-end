@@ -27,4 +27,37 @@ let x = 6
 let idx = 0
 let stack = []
 
-getArrSum(arr, x, idx, stack)
+// getArrSum(arr, x, idx, stack)
+
+
+
+// 变：
+// 描述：输入：一个数组，一个值
+// 输出：相加得该值的 二元数组
+// 思路：指针碰撞
+// https://leetcode-cn.com/problems/he-wei-sde-liang-ge-shu-zi-lcof/
+
+var getTwoArr = function (arr, k) {
+  arr = arr.sort((a, b) => a - b)
+
+  let res = []
+  let start = 0
+  let end = arr.length - 1 
+  let sum = arr[start] + arr[end]
+
+  
+    while (start < end) {
+      if (sum < k) start++
+      else if (sum > k) end--
+      else {
+        res.push([arr[start], arr[end]])
+        return res
+      }
+      
+    }
+  
+}
+
+
+let arr1 = [3, 2, 1, 5, 8, 9, 7, 0]
+console.log(getTwoArr(arr1, 9))
