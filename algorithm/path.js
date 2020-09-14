@@ -15,20 +15,23 @@
  * 输入：m = 3, n = 6 输出 21
  */
 
+// 思路：https://leetcode-cn.com/problems/unique-paths/solution/
+
 /**
  * @param {number} m 行数
  * @param {number} n 列数
  * @return {number} 路径条数
  */
+
 var paths = function(m, n) {
-  let dp = []
+  let dp = [m][n]
 
-  for (let i=0; i<n; i++) dp[0][i] = 1
-  for (let j=0; j<m; j++) dp[j][0] = 1
+  for (let i=0; i<n; i++) dp[0][i] = 1  // 将第一行初始为1
+  for (let j=0; j<m; j++) dp[j][0] = 1  // 将第一列初始为1
 
-  for (let i=1; i<m; i++) {
+  for (let i=1; i<m; i++) { // 从第二行第二列开始遍历，记录到达每一个格子的不同路径数
     for (let j=1; j<n; j++) {
-      dp[i][j] = dp[i-1][j] + dp[i][j-1]
+      dp[i][j] = dp[i-1][j] + dp[i][j-1]  // 相邻并且已遍历格子 的路径数之和
     }
   }
 
