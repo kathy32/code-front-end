@@ -1,5 +1,5 @@
 
-
+// 字符串压缩
 var comperStr = function (str) {
   let result = ''
   result += str[0]
