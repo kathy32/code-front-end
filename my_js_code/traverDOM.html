@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="parent">
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+  
+
+  <script>
+    // 遍历DOM 节点
+    var traverDOM = function (node) {
+      if (node && node.nodeType===1) { 
+        console.log(node.tagName)
+      }
+
+      let childNodes = node.childNodes
+      let item = ''
+
+      for (let i=0; i<childNodes.length; i++) {
+        item = childNodes[i]
+
+        if (item.nodeType === 1) {
+          traverDOM(item)
+        }
+      }
+    }
+
+    // <html> = document.documentElement
+    // <body> = document.body
+    console.log(traverDOM(document.body))
+
+
+
+  </script>
+</body>
+</html>
