@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日历</title>
+  <style>
+    #calendar {
+      width: 450px;
+      margin: auto;
+    }
+    button {
+      width: 15%;
+      height: 30px;
+      float: left;
+      border-radius: 5px;
+      border: 1px;
+      color: #fff;
+      background-color: #F35656;
+    }
+    #title-month{
+      color:#6ac13c; /*绿色*/
+      width: 70%;
+      float: left;
+    }
+    .evrday {
+      width: 14%;
+      float: left;
+      font-weight: bold;
+      font-size: 15px;
+      color:#a8a8a8; 
+    }
+    #day {
+      color: #6ac13c;
+    }
+    div {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+    
+  </style>
+</head>
+<!-- 此处调用 showDay 函数 -->
+<body onLoad="showDay()">
+  <div id="calender">
+    <!-- 日历顶部的标题区域，其id名为title -->
+    <div id="title">
+      <button id="prev" onClick="prev()">Prev Month</button>
+      <div id="title-month"></div>
+      <button id="next" onClick="next()">Next Month</button>
+    </div> 
+
+    <!-- 日期区域，其id名为body -->
+    <div id="body">
+      <div class="evrday">日</div>
+      <div class="evrday">一</div>
+      <div class="evrday">二</div>
+      <div class="evrday">三</div>
+      <div class="evrday">四</div>
+      <div class="evrday">五</div>
+      <div class="evrday">六</div>
+    </div>
+
+    <div id="day"></div>
+  </div>
+
+  <script>
+    var today = new Date()  // 当前时间
+    var year = today.getFullYear()
+    var month = today.getMonth() + 1
+    var day = today.getDate()
+    var allday = 0
+
+    function showMonth () {
+      let year_month = year + '年' + month + '月'
+      document.getElementById('title-month').innerHTML = year_month // 标题显示当前年月
+    }
+
+    function countAllday () {
+      if (month !== 2) {
+        if (month===4 || month===6 || month===11) {
+          allday = 30
+        } else {
+          allday = 31
+        }
+      }
+      else {
+        if ((year%4===0 && year%100!==0) || (year%400===0)) { // 闰年
+          allday = 29
+        } else {
+          allday = 28
+        }
+      }
+    }
+
+    function showDay () {
+      showMonth()
+      countAllday()
+
+      var fristDate = new Date(year, month-1, 1)
+      var week = fristDate.getDay()
+      var dateRow = document.getElementById('day')
+
+      for (var i=0; i<week; i++) {  // 循环输出天数
+        var dayElement = document.createElement('div')
+        dayElement.className = 'evrday'
+        dateRow.appendChild(dayElement)
+      }
+
+      for (var j=1; j<=allday; j++) {
+        var dayElement = document.createElement('div')
+        dayElement.innerHTML = j
+        dayElement.className = 'evrday'
+        dateRow.appendChild(dayElement)
+        if (j === day) {
+          dayElement.style.color = 'red'
+          dateRow.appendChild(dayElement)
+        }
+      }
+    }
+
+    function next () {
+      document.getElementById('day').innerHTML = ''
+      
+      if (month < 12) {
+        month = month + 1
+      }
+      else {
+        month = 1
+        year = year + 1
+      }
+
+      document.getElementsByTagName('div').innerHTML = showDay()
+    }
+
+    function prev () {
+      document.getElementById('day').innerHTML = ''
+      
+      if (month > 1) {
+        month = month - 1
+      }
+      else {
+        month = 12
+        year = year - 1
+      }
+
+      document.getElementsByTagName('div').innerHTML = showDay()
+    }
+
+   
+  </script>
+</body>
+</html>
