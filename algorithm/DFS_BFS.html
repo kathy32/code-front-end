@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='root'>
+    <span>123
+        <a href="#">
+            sdsd
+        </a>
+        <div>sdsd<a>这是一个a标签</a></div>
+    </span>
+
+    <span>456
+        <p>这是一个p标签</p>
+    </span>
+  </div>
+
+  <script>
+    // DFS
+    var deepTraversal = function (node, nodeList) {
+      if (node) {
+        nodeList.push(node)
+
+        var children = node.children
+
+        for (let i=0; i<children.length; i++) {
+          deepTraversal(children[i], nodeList)  // 递归
+        }
+      }
+
+      return nodeList
+
+    }
+
+    // 测试
+    var root = document.getElementById('root')
+    console.log(deepTraversal(root, []))  // [div#root, span, a, div, a, span, p]
+
+
+    // BFS
+    var wideTraversal = function (node) {
+      var nodes = []
+
+      if (node) {
+        var queue = []
+        queue.unshift(node)
+
+        // 此处循环
+        while (queue.length !== 0) {
+          var item = queue.shift()
+          nodes.push(item)
+
+          var children = item.children  // 节点的孩子
+          for (let i=0; i<children.length; i++) {
+            queue.push(children[i])
+          }
+        }
+      }
+
+      return nodes
+    }
+
+    // 测试
+    var root = document.getElementById('root');
+    console.log(wideTraversal(root));   //  [div#root, span, span, a, div, p, a]
+  </script>
+</body>
+</html>
