@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>漂浮的白云</title>
+    <style type="text/css">
+       .controller {
+				position: absolute;
+				width: 225px;
+				height: 320px;
+				z-index: 100;
+				top: 70px;
+				left: 20%;
+				-webkit-animation: bounce-down 1.6s linear infinite;
+				animation: bounce-down 1.6s linear infinite;
+			}
+      img {
+          position: absolute;
+        }
+
+      @-webkit-keyframes bounce-down {
+        25% {
+          -webkit-transform: translateY(-10px);
+        }
+        50%,
+        100% {
+          -webkit-transform: translateY(0);
+        }
+        75% {
+          -webkit-transform: translateY(10px);
+        }
+      }
+
+      @keyframes bounce-down {
+        25% {
+          transform: translateY(-10px);
+        }
+        50%,
+        100% {
+          transform: translateY(0);
+        }
+        75% {
+          transform: translateY(10px);
+        }
+      }
+    </style>
+</head>
+<body>
+	<h1>漂浮的白云</h1>
+
+	<div class="controller">
+		<img src="https://s3.pstatp.com/toutiao/xitu_juejin_web/img/default.1fb7a71.png" alt="">
+	</div>
+
+</body>
+</html>
