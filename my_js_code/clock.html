@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <div id="app" style="font-size: 100px; text-align: center; color: orange;">1</div>
+        <input type="button" onclick="start()" value="start" id="st"/>
+        <input type="button" onclick="stop()" value="stop" id="sp"/>
+        <script type="text/javascript">
+            var dt;
+            var st = document.getElementById('st');
+            var sp= document.getElementById('sp');
+            var app = document.getElementById('app');
+            var i=0;
+            function start(){
+                st.disabled = true;
+                sp.disabled = false
+                dt = setInterval(function(){
+                    app.innerText = i;
+                    i++
+                },100);
+            }
+            function stop(){
+                sp.disabled= true;
+                st.disabled=false
+                clearInterval(dt)
+            }
+        </script>
+    </body>
+</html>
