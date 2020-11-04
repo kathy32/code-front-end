@@ -13,6 +13,7 @@ var longestPalindrome = function (s) {
     for (let j=i; j<s.length; j++) {
       if (j - i === 0)  dp[i][j] = true
       else if (j - i === 1 && s[i] === s[j])  dp[i][j] = true
+      // 如果一个字符串是回文串，那么在它左右分别加上一个相同的字符，那么它一定还是一个回文串
       else if (s[i] === s[j] && dp[i + 1][j - 1])  dp[i][j] = true
 
       if (dp[i][j] && j - i + 1 > res.length) {
