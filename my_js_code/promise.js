@@ -55,7 +55,7 @@ Promise.prototype.then = function (onfulfilled, onrejected) {
 
 
 // 2. Promise.all()
-Promise.all = function (iterator) {
+Promise.prototype.all = function (iterator) {
   let count = 0
   let len = iterator.length
   let res = []
@@ -74,7 +74,7 @@ Promise.all = function (iterator) {
 }
 
 // 3. Promise.race()
-Promise.race = function (iterator) {
+Promise.prototype.race = function (iterator) {
 
   return new Promise((resolve, reject) => {
 
@@ -86,18 +86,3 @@ Promise.race = function (iterator) {
   }) 
 }
 
-
-// 神策面试
-new Promise ((resolve, reject) => {
-  console.log(1)
-
-  setTimeout(() => {
-    console.log(2)
-  })
-  
-  resolve()
-}).then(() => {console.log(3)})
-
-console.log(4)
-
-// 1,4,3,2
