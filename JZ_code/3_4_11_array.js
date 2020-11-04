@@ -58,6 +58,43 @@ function findNum (matrix, rows, cols, num) {
 }
 
 
+// 题目4 解题2
+/**
+ * @param {number[][]} matrix
+ * @param {number} target
+ * @return {boolean}
+ */
+var findNumberIn2DArray = function(matrix, target) {
+  let found = false
+  let rows = matrix.length
+  let cols = matrix[0].length
+
+  if (matrix!=null && rows>0 && cols>0) {
+      let row = 0
+      let col = cols - 1
+
+      while (rows>row && col>0) {
+          if (matrix[row*cols+col] === target) {
+              found = true
+              break
+          }
+          else if (matrix[row*cols+col] > target) {
+              --col
+          }
+          else {
+              ++row
+          }
+      }
+  }
+
+  return found
+};
+
+let martirx = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]]
+console.log(findNumberIn2DArray(martirx)) // true
+
+
+
 // 题目11 旋转数组的最小数字
 // 方法一：直接遍历找，无法达到面试要求 复杂度：n
 var minArray1 = function (arr) {
@@ -98,6 +135,8 @@ var minArray2 = function (arr) {
 } 
 
 console.log(minArray2(arr))
+
+
 
 
 
