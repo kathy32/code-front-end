@@ -21,3 +21,19 @@ new Promise((resolve, reject) => {
 }).then(() => {
   console.log(2)
 })
+
+
+// 神策面试
+new Promise ((resolve, reject) => {
+  console.log(1)
+
+  setTimeout(() => {
+    console.log(2)
+  })
+  
+  resolve()
+}).then(() => {console.log(3)})
+
+console.log(4)
+
+// 1,4,3,2
