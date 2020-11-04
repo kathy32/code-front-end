@@ -55,6 +55,7 @@ Promise.prototype.then = function (onfulfilled, onrejected) {
 
 
 // 2. Promise.all()
+// iterator 传入的是一个数组
 Promise.prototype.all = function (iterator) {
   let count = 0
   let len = iterator.length
