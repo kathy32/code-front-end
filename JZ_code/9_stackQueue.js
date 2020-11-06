@@ -1,12 +1,12 @@
 // 题目9 用两个栈实现队列
 // 思路：inStack 进栈，outStack 出栈
-function stackQueue () {
+function StackQueue () {
   this.inStack = []
   this.outStack = []
 }
 
 stackQueue.prototype.appendTail = function (value) {
-    this.inStack.push(value)
+    return this.inStack.push(value)
 }
 
 stackQueue.prototype.deleteHead = function () {
