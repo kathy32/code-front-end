@@ -16,7 +16,7 @@ function buildTree (preOrder, inOrder) {
   const node = new TreeNode(rootVal)
 
   for (let i=0; i<inOrder.length; i++) {
-    if (inOrder[i] === rootVal) {
+    if (inOrder[i] === rootVal) { // 根据前序根 -> 找中序根
       node.left = buildTree(preOrder.slice(1, i+1), inOrder.slice(0, i))  
       node.right = buildTree(preOrder.slice(i+1), inOrder.slice(i+1))
 
