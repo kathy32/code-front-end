@@ -6,6 +6,7 @@ function TreeNode (value) {
 
 
 // 题目7 重建二叉树
+// 解题：https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/solution/mian-shi-ti-07-zhong-jian-er-cha-shu-di-gui-fa-qin/
 // 注：前序遍历和中序遍历 都是数组
 // preOrder: 1,     2, 4, 7,      3, 5, 6, 8    根左右
 // inOrder: 4, 7, 2,     1,      5, 3, 8, 6   左根右
