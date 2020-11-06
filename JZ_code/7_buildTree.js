@@ -1,7 +1,7 @@
-function TreeNode (value, left, right) {
+function TreeNode (value) {
   this.value = value
-  this.left = left
-  this.right = right
+  this.left = null
+  this.right = null
 }
 
 
