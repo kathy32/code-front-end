@@ -19,7 +19,7 @@ var departList = function(head, x) {
   while (head) {
     
     if (x > head.val) {
-      before.next = head
+      before.next = head  // 节点的复制
       before = before.next
     } else {
       after.next = head
