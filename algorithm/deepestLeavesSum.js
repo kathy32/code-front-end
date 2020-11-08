@@ -25,10 +25,10 @@ var deepestLeavesSum = function (root) {
   if (arr.length === 0) return res 
 
   for (let i=0; i<arr[arr.length-1].length; i++) {  // 中间条件：从外到里看，子数组最后一个数组长度
-
+    res += arr[arr.length-1][i]
   }
 
-
+  return res
 
 
   // n 表示层数
@@ -44,3 +44,42 @@ var deepestLeavesSum = function (root) {
 
 
 }
+
+
+
+
+let root = {
+  val: 1,
+  left: {
+    val: 2,
+    left: {
+      val: 4,
+      left: {
+        val: 7
+      },
+      right: null
+    },
+    right: {
+      val: 5,
+      left: null,
+      right: null
+    }
+  },
+  right: {
+    val: 3,
+    left: null,
+    right: {
+      val: 6,
+      left: null,
+      right: {
+        val: 8,
+        left: null,
+        right: null
+      }
+    }
+  }
+}
+
+
+
+console.log(deepestLeavesSum(root))
