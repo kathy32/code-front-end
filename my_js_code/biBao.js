@@ -9,3 +9,13 @@ function outFn() {
 
 // 查看内存情况：
 // 命令行可以使用 Node 提供的process.memoryUsage方法
+
+
+
+var a= 1;
+function f() {
+  console.log(a); // undefined
+  var a = 2;
+}
+
+f();
