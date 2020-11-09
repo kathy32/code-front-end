@@ -26,3 +26,32 @@ var removeDuplicates = function (arr) {
 let arr = [0,0,1,1,1,2,2,3,3,4]
 
 console.log(removeDuplicates(arr))
+
+
+
+
+// 变：去除所有重复元素，只留下出现一次的元素
+var removeDuplicates1 = function (arr) {
+  let i = 0
+  let res = []
+
+  for (let j=1; j<arr.length; j++) {
+    if (arr[i] !== arr[j]) {
+      i++
+      arr[i] = arr[j]
+    }
+  }
+
+  // 赋值
+  for (let k=0; k<i+1; k++) {
+    res.push(arr[k])
+  }
+
+  return res
+}
+
+
+
+let arr1 = [0,0,1,1,1,2,2,3,3,4]
+
+console.log(removeDuplicates1(arr1))
