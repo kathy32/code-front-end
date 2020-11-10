@@ -38,7 +38,7 @@ let stack = []
 // https://leetcode-cn.com/problems/he-wei-sde-liang-ge-shu-zi-lcof/
 
 var getTwoArr = function (arr, k) {
-  arr = arr.sort((a, b) => a - b)
+  arr.sort((a, b) => a - b)
 
   let res = []
   let start = 0
