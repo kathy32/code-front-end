@@ -15,7 +15,7 @@ function sallowCopy (object) {
 
 
 // 深拷贝
-function deepCopy (object) {
+let deepCopy = function (object) {
   if (!object || typeof object !== 'object') return
 
   let newObject = Array.isArray(object) ? [] : {}

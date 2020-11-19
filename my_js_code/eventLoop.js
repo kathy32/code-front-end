@@ -37,3 +37,27 @@ new Promise ((resolve, reject) => {
 console.log(4)
 
 // 1,4,3,2
+
+
+
+new Promise((resolve, reject) => {
+  console.log(1)
+
+  setTimeout(() => {
+    console.log(2)
+  },300)
+  
+  resolve()
+
+}).then(() => {
+  console.log(3)
+}).then(() => {
+  return new Promise(() => {
+    console.log(4)
+  })
+}).then(() => {
+  console.log(5)
+})  
+
+// 1,3,4,2
+// 注意：没有5！return 了
